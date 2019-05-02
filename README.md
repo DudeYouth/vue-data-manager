@@ -17,7 +17,7 @@
 git clone https://github.com/DudeYouth/vue-data-manager.git
 ```
 
- vue-data-manager的使用方方式与vue的方式是一样的，在此不做详述。只要熟悉vue的玩家相信也一定会使用该工具。
+ vue-data-manager如何使用在此不做详述。只要熟悉vue的玩家相信也一定会使用该工具。示例：
 ```javascript
 // user.js
 export default{
@@ -43,22 +43,34 @@ export default new Store({
 ```
 
 ```javascript
-// main.vue
+// app.vue
 <template>
     <span @click="changeName">{{$store.user.userName}}</span>
 </template>
 <script>
-import Vue from 'vue';
-import $store from './store';
-
-Vue.prototype.$store = $store; 
-export default new Vue({
-    el:'#app',
-    methods:{
-        changeName(){
-            this.$store.user.userName = '小红';
+    export default{
+        data(){
+            return {};
+        },
+        methods:{
+            changeName(){
+                this.$store.user.userName = '小红';
+            }
         }
     }
-})
 <script>
+```
+
+```javascript
+// main.js
+import Vue from 'vue';
+import $store from './store';
+import App from ‘。/app.vue’;
+
+Vue.prototype.$store = $store; 
+new Vue({
+    el:'#app',
+    components:{App},
+    template:`<div><App /><span>{{$store.user.userName}}</span></div>`
+})
 ```
