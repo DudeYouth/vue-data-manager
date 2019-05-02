@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span>a + b={{$store.test.a}}+{{$store.test.b}}={{$store.test.c}}</span>
+    <span ref="content">a - b={{$store.test.a}}-{{$store.test.b}}={{$store.test.a-$store.test.b}}</span>
     <button @click="add">a+1</button>
     <button @click="cut">b-1</button>
   </div>
@@ -14,7 +14,7 @@ export default {
   },
   methods:{
     add(){
-      this.$store.test.changeA(this.$store.test.a+1);
+      this.$store.test.changeA(this.$store.test.a+1,this.$refs.content);
     },
     cut(){
       this.$store.test.b--;

@@ -6,11 +6,12 @@ export default{
     }
   },
   methods: {
-    changeA (value) {
+    changeA (value, vm) {
       this.a = value
-    },
-    changeB (value) {
-      this.change = value
+      console.log('before:' + vm.innerText)
+      this.$nextTick(() => {
+        console.log('after:' + vm.innerText)
+      })
     }
   },
   watch: {
