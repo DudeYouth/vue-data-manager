@@ -41,7 +41,7 @@ export default class Store {
                 obData[computedPropsKey] = result;
             }
             let state = this[key] = Vue.observable(obData);
-            state.$watch = Vue.$watch.bind(state);
+            state.$watch = Vue.prototype.$watch.bind(state);
             state.$nextTick = Vue.nextTick.bind(state);
             state.$delete = Vue.delete.bind(state);
             state._watchers = [];
