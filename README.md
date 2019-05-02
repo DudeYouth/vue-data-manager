@@ -14,7 +14,7 @@
 
 #### 安装使用
 ```
-git clone https://github.com/DudeYouth/vue-data-manager.git
+npm install --save vue-data-manager
 ```
 
  vue-data-manager如何使用在此不做详述。只要熟悉vue的玩家相信也一定会使用该工具。示例：
