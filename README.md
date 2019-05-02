@@ -65,7 +65,7 @@ export default new Store({
 // main.js
 import Vue from 'vue';
 import $store from './store';
-import App from ‘。/app.vue’;
+import App from './app’;
 
 Vue.prototype.$store = $store; 
 new Vue({
