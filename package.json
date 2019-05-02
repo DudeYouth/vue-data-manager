@@ -1,0 +1,22 @@
+{
+  "name": "vue-data-manager",
+  "version": "1.0.0",
+  "description": "------- ### 介绍 为什么需要vue-data-manager ？ + 轻松的实现跨组件、跨路由改变数据状态 + vuex等工具需要花时间入手，结构复杂繁琐。vue-data-manager api与vue 原生语法一致，贴切易入手。 + 使用了vue本身api进行扩展、轻量、对vue友善。",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DudeYouth/vue-data-manager.git"
+  },
+  "author": "ricky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DudeYouth/vue-data-manager/issues"
+  },
+  "homepage": "https://github.com/DudeYouth/vue-data-manager#readme"
+}

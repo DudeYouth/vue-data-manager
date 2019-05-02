@@ -35,7 +35,8 @@ export default{
 
 ```javascript
 // store.js
-import Store from './vue-data-manager';
+import Store from 'vue-data-manager';
+import Vue from 'vue';
 import user from './user';
 export default new Store({
     user
