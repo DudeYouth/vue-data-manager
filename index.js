@@ -1,5 +1,5 @@
 import Vue from 'vue';
-
+const objectName = 'vue-data-manager';
 function isObject (data) {
     return Object.prototype.toString.call(data) === '[object Object]';
 }
@@ -18,25 +18,25 @@ export default class Store {
             if (typeof item.data === 'function') {
                 obData = item.data();
                 if (!isObject(obData)) {
-                    throw new Error('vue store ' + key + '.data is not return object!');
+                    throw new Error(objectName+' store ' + key + '.data is not return object!');
                 }
             } else if (!isObject(item.data)) {
-                throw new Error('vue store ' + key + '.data must is object or function!');
+                throw new Error(objectName+' store ' + key + '.data must is object or function!');
             }
             if (item.watch && !isObject(item.watch)) {
-                throw new Error('vue store ' + key + '.watch must is object!');
+                throw new Error(objectName+' store ' + key + '.watch must is object!');
             }
             if (item.computed && !isObject(item.computed)) {
-                throw new Error('vue store ' + key + '.computed must is object!');
+                throw new Error(objectName+' store ' + key + '.computed must is object!');
             }
             if (item.methods && !isObject(item.methods)) {
-                throw new Error('vue store ' + key + '.methods must is object!');
+                throw new Error(objectName+' store ' + key + '.methods must is object!');
             }
             for (let computedPropsKey in item.computed) {
                 let computedMethod = item.computed[computedPropsKey];
                 let result = computedMethod.call(obData);
                 if (typeof result === 'function') {
-                    throw new Error('vue store ' + key + '.computed.' + computedPropsKey + ' return is not a legal value!');
+                    throw new Error(objectName+' store ' + key + '.computed.' + computedPropsKey + ' return is not a legal value!');
                 }
                 obData[computedPropsKey] = result;
             }
@@ -63,7 +63,7 @@ export default class Store {
             for (let methodName in item.methods) {
                 let method = item.methods[methodName];
                 if (typeof method !== 'function') {
-                    throw new Error('vue store ' + key + '.methods.' + methodName + ' is not funtion!');
+                    throw new Error(objectName+' store ' + key + '.methods.' + methodName + ' is not funtion!');
                 }
                 state[methodName] = item.methods[methodName].bind(state);
             }
